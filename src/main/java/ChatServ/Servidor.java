@@ -187,6 +187,7 @@ class ClientHandler implements Runnable {
                 String origen = st.nextToken();
                 String destino = st.nextToken(); 
                 String msj = st.nextToken(); 
+                //#MSJ||FQLSHP||c0||c2||Hola :)
 
 
 
