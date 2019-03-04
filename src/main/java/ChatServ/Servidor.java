@@ -108,6 +108,7 @@ public class Servidor {
     }
 
     public void enviarMensajeTodos(String tipo) {
+       try{
         for (ClientHandler c : conectados) {
 
             String msj = "";
@@ -123,6 +124,11 @@ public class Servidor {
             c.enviarMensaje(msj);
         }
     }
+    catch (Exception ex){
+        System.out.println("Excepcion " + ex.getLocalizedMessage());
+    }
+    }
+    
 
 }
 
@@ -207,7 +213,7 @@ class ClientHandler implements Runnable {
                         if(Comandos._ERRORMSJ.equals(accion)){
                             mc.dos.writeUTF(mensaje);
                         }else{
-                        mc.dos.writeUTF(mensaje);
+                        mc.dos.writeUTF(mc.usuario+mensaje);
                         break;
                         }
                     }
